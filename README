@@ -1,0 +1,47 @@
+#==============================================================================
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+IMPORTANT!!!! TEdenovo.py WORKS with phyton2:
+
+module load python/2.7.15-201901021238
+#Already in the run file!
+
+#==============================================================================
+#MYSQL
+mysql -u arklab_repet -p -h jbpcdb.bpcservers.private
+pwd: Gt0qw93#u3tgsgge
+mysql> use arklab_repet;
+mysql> show tables;
+#==============================================================================
+
+This directory serves as a template for running the TEdenovo pipeline.
+
+	1. Copy this directory to another location.
+
+	2. Replace the example "DmelChr4.fa" fasta file with the one you want to run.
+
+	3. Edit TEdenovo.cfg and ./run to include the appropriate project names and working directory.
+
+	4. Execute the following command: "nohup ./run > output.log &" or "clusterize ./run -n 10" where n is number of nodes
+
+The output is a MCL-filtered library of TEs located in {NAME}_Blaster_GrpRecPil_Struct_Map_TEclassif_Filtered_MCL. The console output is redirected to output.log.
+
+#==============================================================================
+
+On the FASTA files you use:
+	* There is a 15-character limit on the name of the file (and the project name)
+	* Make sure there is a line break at least once every 60 bases
+	* Make sure there are no illegal characters in the FASTA headers
+
+##LINE BREAK
+seqkit seq -w 60 Sp.fasta > Sp.fna
+
+##RENAME fasta headers
+awk '/^>/{print ">Sp_ctg" ++i; next}{print}' < Sp.fna > Sp.fst
+
+##ALL CAPITAL LETTERS
+awk 'BEGIN{FS=" "}{if(!/>/){print toupper($0)}else{print $1}}' Sp.fst > Sp.fa
+
+#==============================================================================
+
+Brandon M. Le (Brandon_Le@brown.edu), August 2016
+*Edited by Fernando Rodriguez, June 2020
