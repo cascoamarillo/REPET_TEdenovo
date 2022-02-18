@@ -1,7 +1,7 @@
 # Transposons
 #TEdenovo using REPET v2
 #==============================================================================
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 #TEdenovo.py from REPET v2 WORKS with phyton2:
 
 #module load python/2.7.15
