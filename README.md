@@ -12,7 +12,7 @@
 #[project]
 #project_name: DmelChr4
 
-#Edit TEdenovo.cfg and ./run in order to adapt it to your personal situation. More in https://urgi.versailles.inra.fr/Tools/REPET/TEdenovo-tuto
+#Edit TEdenovo.cfg and ./runTEdenovo in order to adapt it to your personal situation. More in https://urgi.versailles.inra.fr/Tools/REPET/TEdenovo-tuto
 
 #The output is a MCL-filtered library of TEs located in {NAME}_Blaster_GrpRecPil_Struct_Map_TEclassif_Filtered_MCL
 
