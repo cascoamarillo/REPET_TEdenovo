@@ -1,4 +1,4 @@
-# Transposons
+# de novo Transposon identification
 #TEdenovo using REPET v2
 #==============================================================================
 
